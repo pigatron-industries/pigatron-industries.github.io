@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Pigatron Industries
 
 You can use the [editor on GitHub](https://github.com/pigatron-industries/pigatron-industries.github.io/edit/master/docs/index.md) to maintain and preview the content for your website in Markdown files.
 
