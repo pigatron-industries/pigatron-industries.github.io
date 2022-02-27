@@ -19,8 +19,11 @@
       <div class="inner">
 
         <header>
-          <h1>{{ site.title | default: site.github.repository_name }}</h1>
-          <h2>{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
+          <div class="logo">
+            <div class="logoline1">pigatron</div>
+            <div class="logoline2">INDUSTRIES</div>
+          </div>
+          <h2>{{ page.description }}</h2>
         </header>
         <section id="downloads" class="clearfix">
             {% if site.show_downloads %}
