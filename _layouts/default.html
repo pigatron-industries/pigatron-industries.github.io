@@ -16,15 +16,17 @@
 
   <body>
     <div id="container">
-      <div class="inner">
 
-        <header>
-          <div class="logo">
-            <div class="logoline1">pigatron</div>
-            <div class="logoline2">INDUSTRIES</div>
-          </div>
-          <h2>{{ page.description }}</h2>
-        </header>
+      <header>
+        <div class="inner">
+          <div class="logotext1">pigatron</div>
+          <div class="logotext2">INDUSTRIES</div>
+        </div>
+        <div class="logoline"></div>
+        <h2>{{ page.description }}</h2>
+      </header>
+
+      <div class="inner">
         <section id="downloads" class="clearfix">
             {% if site.show_downloads %}
                 <a href="{{ site.github.zip_url }}" id="download-zip" class="button"><span>Download .zip</span></a>

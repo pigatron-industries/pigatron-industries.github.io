@@ -12,16 +12,38 @@
     width: 920px;
 }
 
-.logoline1 {
-    font-family: audiowide;
-    font-size: 50pt;
+header {
+    padding-top: 0;
 }
 
-.logoline2 {
+.logotext1 {
+    font-family: audiowide;
+    font-size: 50pt;
+    color: #303030;
+}
+
+.logotext2 {
     font-family: "Courier New";
     font-size: 25pt;
     font-weight: bold;
     position: relative;
-    top: -0.7em;
+    top: -0.8em;
     left: 3.5em;
+    color: #303030;
+}
+
+.logoline1 {
+    border-top: 1px solid #6d6d6d;  
+    width: 200px;
+    position: relative;
+    top: -54px;
+    left: -90px;
+}
+
+.logoline2 {
+    border-top: 1px solid #6d6d6d;
+    position: relative;
+    width: 500px;
+    top: -54px;
+    left: 325px;
 }
