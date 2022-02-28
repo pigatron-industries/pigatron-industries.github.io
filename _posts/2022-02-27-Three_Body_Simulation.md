@@ -36,7 +36,7 @@ $$a_{i}$$ is the acceleration of the first body.
 
 Combining the equations of motion we can derive the following equation to calculate the force exerted on one body by another body:
 
-$$F_{i} = m_{i}a_{i} = \frac{Gm_{i}m_{j}}{r^2}$$
+$$F_{i} = m_{i}a_{i} = \frac{Gm_{i}m_{j}}{r_{ij}^2}$$
 
 This can be modified to use a vector for acceleration and distance between bodies by multiplying the right side by a vector of length 1 given by $$\frac{\vec{r_{ij}}}{r_{ij}}$$ and the acceleration on the left hand side then becomes a vector also:
 
