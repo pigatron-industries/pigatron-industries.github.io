@@ -8,6 +8,11 @@
     src: url('/assets/fonts/Audiowide-Regular.ttf') format("truetype");
 }
 
+body {
+    font-size: 1.1em;
+    color: #505050;
+}
+
 .sidebar {
     width: 220px;
     float: left;
