@@ -17,29 +17,43 @@
   <body>
     <div id="container">
 
-      <header>
-        <div class="inner header">
+      <div class="sidebar">
+        <a class="logo" href="https://pigatron-industries.github.io">
           <div class="logotext1">pigatron</div>
           <div class="logotext2">INDUSTRIES</div>
           <div class="logoline1"></div>
           <div class="logoline2"></div>
+        </a>
+        <div class="links">
+          {% assign sorted_pages = site.pages | sort:"order" %}
+          {% for node in sorted_pages %}
+            {% if page.url == node.url %}
+              <div class="active">{{ node.title }}</div>
+            {% else %}
+              <div><a href="{{ site.url }}/{{ site.github.repository_name }}{{ node.url }}">{{ node.title }}</a></div>
+            {% endif %}
+          {% endfor %}
         </div>
-        <h2>{{ page.description }}</h2>
-      </header>
+        <section id="downloads" class="clearfix">
+          {% if site.github.is_project_page %}
+            <a href="{{ site.github.repository_url }}" id="view-on-github" class="button"><span>View on GitHub</span></a>
+          {% else %}
+            <a href="{{ site.github.owner_url }}" id="view-on-github" class="button"><span>View on GitHub</span></a>
+          {% endif %}
+        </section>
+      </div>
 
       <div class="inner">
+
+        <header>
+          <h1>{{ site.title | default: site.github.repository_name }}</h1>
+          <h2>{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
+        </header>
         <section id="main_content">
             {{ content }}
         </section>
 
         <footer>
-            <section id="downloads" class="clearfix">
-              {% if site.github.is_project_page %}
-                  <a href="{{ site.github.repository_url }}" id="view-on-github" class="button"><span>View on GitHub</span></a>
-              {% else %}
-                  <a href="{{ site.github.owner_url }}" id="view-on-github" class="button"><span>View on GitHub</span></a>
-              {% endif %}
-            </section>
             {% if site.github.is_project_page %}
                 {{ site.title | default: site.github.repository_name }} is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a><br>
             {% endif %}
