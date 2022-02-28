@@ -1,5 +1,5 @@
 # Posts
 
 {% for post in site.posts %}
-- {{ page.date | date: "%-d %B %Y" }} [{{ post.title }}]({{ post.url }})
+- {{ post.date | date: "%-d %B %Y" }} [{{ post.title }}]({{ post.url }})
 {% endfor %}
