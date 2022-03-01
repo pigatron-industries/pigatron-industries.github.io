@@ -53,7 +53,7 @@ $$\vec{a_{ij}} = \frac{Gm_{j}}{r_{ij}^3}\vec{r_{ij}}$$
 
 This gives the acceleration of one of the bodies caused by one of the other bodies. To get the accelaration of one body caused by the other two bodies we can simply add them together:
 
-\vec{a_{1}} = \frac{Gm_{2}}{r_{12}^3}\vec{r_{12}} + \frac{Gm_{3}}{r_{13}^3}\vec{r_{13}}
+$$\vec{a_{1}} = \frac{Gm_{2}}{r_{12}^3}\vec{r_{12}} + \frac{Gm_{3}}{r_{13}^3}\vec{r_{13}}$$
 
 ## The code
 
@@ -65,9 +65,9 @@ The class looks like this:
 class Body {
     public:
         float mass = 1;
-        Vector<2> position = Vector<2>(0, 0);
-        Vector<2> velocity = Vector<2>(0, 0);
-        Vector<2> acceleration = Vector<2>(0, 0);
+        Vector<2> position;
+        Vector<2> velocity;
+        Vector<2> acceleration;
 };
 ```
 
