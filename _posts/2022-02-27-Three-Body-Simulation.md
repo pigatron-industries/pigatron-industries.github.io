@@ -26,19 +26,24 @@ We will simulate the 3 bodies in 2 dimensions. The properties of each body, such
 The origin of the system will be located at the centre of mass of the three bodies. This is becasue the centre of mass of any number of bodies always remains motionless.
 
 
-## Deriving the equation used for simulation
+## The maths
 
 The following equations use i and j subscripts to represent 2 of the three bodies.
-$$m_{i}$$ is the mass of the first body.
-$$m_{j}$$ is the mass of the second body.
-$$r_{ij}$$ is the distance between the bodies.
-$$a_{i}$$ is the acceleration of the first body.
+
+- $$m_{i}$$ is the mass of the first body.
+- $$m_{j}$$ is the mass of the second body.
+- $$r_{ij}$$ is the distance between the bodies.
+- $$a_{i}$$ is the acceleration of the first body.
 
 Combining the equations of motion we can derive the following equation to calculate the force exerted on one body by another body:
 
 $$F_{i} = m_{i}a_{i} = \frac{Gm_{i}m_{j}}{r_{ij}^2}$$
 
-This can be modified to use a vector for acceleration and distance between bodies by multiplying the right side by a vector of length 1 given by $$\frac{\vec{r_{ij}}}{r_{ij}}$$ and the acceleration on the left hand side then becomes a vector also:
+To make acceleration a vector we can multiply the right hand side by a vector of length 1 representing the direction of body 2 in relation to body 1. To get a vector of length one we divide the vector by its length:
+
+$$\frac{\vec{r_{ij}}}{r_{ij}}$$
+
+Combining with Newtons's equations gives:
 
 $$m_{i}\vec{a_{i}} = \frac{Gm_{i}m_{j}}{r_{ij}^3}\vec{r_{ij}}$$
 
