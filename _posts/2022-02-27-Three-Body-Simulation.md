@@ -63,8 +63,9 @@ From Newton's equations, we can calculate an acceleration based on the positions
 - $$\Delta v$$ is the change in velocity.
 - $$\Delta p$$ is the change in position.
 
-\Delta v = a \Delta t
-\Delta p = v \Delta t
+$$\Delta v = a \Delta t$$
+
+$$\Delta p = v \Delta t$$
 
 There are more accurate methods such as the Runge-Kutta method, but this is also more complicated and would require us to apply Newton's equation multiple times for each sample.
 
