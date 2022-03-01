@@ -61,12 +61,14 @@ We will use a vector class to store the various properties of a body and a Body 
 
 The class looks like this:
 
-    class Body {
-        public:
-            float mass = 1;
-            Vector<2> position = Vector<2>(0, 0);
-            Vector<2> velocity = Vector<2>(0, 0);
-            Vector<2> acceleration = Vector<2>(0, 0);
-    };
+``` cpp
+class Body {
+    public:
+        float mass = 1;
+        Vector<2> position = Vector<2>(0, 0);
+        Vector<2> velocity = Vector<2>(0, 0);
+        Vector<2> acceleration = Vector<2>(0, 0);
+};
+```
 
 
