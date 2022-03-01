@@ -45,10 +45,28 @@ $$\frac{\vec{r_{ij}}}{r_{ij}}$$
 
 Combining with Newtons's equations gives:
 
-$$m_{i}\vec{a_{i}} = \frac{Gm_{i}m_{j}}{r_{ij}^3}\vec{r_{ij}}$$
+$$m_{i}\vec{a_{ij}} = \frac{Gm_{i}m_{j}}{r_{ij}^3}\vec{r_{ij}}$$
 
 We can then also divide each side by $$m_{i}$$ to show the the mass of the first body does not contribute to it's own acceleration:
 
-$$\vec{a_{i}} = \frac{Gm_{j}}{r_{ij}^3}\vec{r_{ij}}$$
+$$\vec{a_{ij}} = \frac{Gm_{j}}{r_{ij}^3}\vec{r_{ij}}$$
+
+This gives the acceleration of one of the bodies caused by one of the other bodies. To get the accelaration of one body caused by the other two bodies we can simply add them together:
+
+\vec{a_{1}} = \frac{Gm_{2}}{r_{12}^3}\vec{r_{12}} + \frac{Gm_{3}}{r_{13}^3}\vec{r_{13}}
+
+## The code
+
+We will use a vector class to store the various properties of a body and a Body class to store the current state. A Body has three variable properties; position, velocity, acceleratio and one fixed scalar property; mass:
+
+The class looks like this:
+
+    class Body {
+        public:
+            float mass = 1;
+            Vector<2> position = Vector<2>(0, 0);
+            Vector<2> velocity = Vector<2>(0, 0);
+            Vector<2> acceleration = Vector<2>(0, 0);
+    };
 
 
