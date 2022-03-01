@@ -55,6 +55,19 @@ This gives the acceleration of one of the bodies caused by one of the other bodi
 
 $$\vec{a_{1}} = \frac{Gm_{2}}{r_{12}^3}\vec{r_{12}} + \frac{Gm_{3}}{r_{13}^3}\vec{r_{13}}$$
 
+### Euler method
+
+From Newton's equations, we can calculate an acceleration based on the positions of the bodies. We need to turn this into a velocity and a position and to do this we can use Euler's method for solving differential equations. It uses a series of time steps to calculate the positions at certain points in time. It is the simplest way to approximate differential equations but also has the largest error, which is proportional to the size of the time step used. It has to be applied once to get velocity and again to get position.
+
+- $$\Delta t$$ is the size of the time step.
+- $$\Delta v$$ is the change in velocity.
+- $$\Delta p$$ is the change in position.
+
+\Delta v = a \Delta t
+\Delta p = v \Delta t
+
+There are more accurate methods such as the Runge-Kutta method, but this is also more complicated and would require us to apply Newton's equation multiple times for each sample.
+
 ## The code
 
 We will use a vector class to store the various properties of a body and a Body class to store the current state. A Body has three variable properties; position, velocity, acceleratio and one fixed scalar property; mass:
