@@ -25,7 +25,7 @@ We will simulate the 3 bodies in 2 dimensions. The properties of each body, such
 
 The origin of the system will be located at the centre of mass of the three bodies. This is becasue the centre of mass of any number of bodies always remains motionless.
 
-![Three body system coordiantes](images/three_body_simulation_coordinates.drawio.png)
+![Three body system coordinates](/assets/images/three_body_simulation_coordinates.drawio.png)
 
 ## The maths
 
