@@ -149,8 +149,58 @@ Lagrange points are points in the standard orbit of 2 bodies (usually one massiv
 
 ![Lagrange points](/assets/images/three_body_simulation_lagrange_points.drawio.png)
 
+A simple lagrange L3 orbit can be produced by adding a large static body at the origin and two smaller bodies at either side with velocity in the opposite directions:
+
+``` cpp
+bodies[0].mass = 100;
+bodies[0].position = Vector<2>(0, 0);
+bodies[0].velocity = Vector<2>(0, 0);
+bodies[1].mass = 1;
+bodies[1].position = Vector<2>(0, 4);
+bodies[1].velocity = Vector<2>(5, 0);
+bodies[2].mass = 1;
+bodies[2].position = Vector<2>(0, -4);
+bodies[2].velocity = Vector<2>(-5, 0);
+```
+
+### Figure 8 Orbit
+
+Three equal bodies can be arranged to orbit in a figure of 8. The starting positions of the bodies should be on a line and equal distance from each other. The initial velocity vector of the centre body should be twice the magnitude and in the exact opposite direction of the outer bodies:
+
+![Lagrange points](/assets/images/three_body_simulation_figure8.drawio.png)
+
+A handy function can be written to create a system like this.
+
+``` cpp
+void ThreeBody::initEqualInlineSystem(int mass, Vector<2> velocity) {
+    bodies[0].mass = mass;
+    bodies[0].position = Vector<2>(-1, 0) * mass;
+    bodies[0].velocity = velocity;
+    bodies[1].mass = mass;
+    bodies[1].position = Vector<2>(1, 0) * mass;
+    bodies[1].velocity = velocity;
+    bodies[2].mass = mass;
+    bodies[2].position = Vector<2>(0, 0) * mass;
+    bodies[2].velocity = velocity * -2; // opposite and equal to other 2 velocities
+}
+```
+
+Then we can experiment with different velocity directions. e.g. The following vector generates a stable figure of 8:
+
+``` cpp
+ThreeBody::initEqualInlineSystem(4, Vector<2>(0.347111, 0.532728));
+```
+
+And a more chaotic, but still stable, system is created with:
+
+``` cpp
+ThreeBody::initEqualInlineSystem(4, Vector<2>(0.210832, 0.51741));
+```
+
+
 
 ## Further Reading
 
-[Periodic Planar Three-Body Orbits](https://observablehq.com/@rreusser/periodic-planar-three-body-orbits)
-[Three Body Gallery](http://three-body.ipb.ac.rs/)
+- [Periodic Planar Three-Body Orbits](https://observablehq.com/@rreusser/periodic-planar-three-body-orbits)
+
+- [Three Body Gallery](http://three-body.ipb.ac.rs/)
