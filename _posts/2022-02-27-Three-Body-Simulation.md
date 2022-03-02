@@ -20,7 +20,7 @@ The origin of the system will be located at the centre of mass of the three bodi
 
 ## The maths
 
-# Newton's equations of motion
+### Newton's equations of motion
 
 The 2 equations that we will need are, Newton's second law:
 
