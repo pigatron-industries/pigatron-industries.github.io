@@ -215,7 +215,7 @@ bodies[2].position = Vector<2>(-1.1061194753, 0) * 4;
 bodies[2].velocity = Vector<2>(0, -0.9036964391);
 ```
 
-Asymmetrical stabel version:
+Asymmetrical stable version:
 
 ``` cpp
 bodies[0].mass = 4;
