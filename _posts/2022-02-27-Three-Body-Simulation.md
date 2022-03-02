@@ -197,7 +197,39 @@ And a more chaotic, but still stable, system is created with:
 ThreeBody::initEqualInlineSystem(4, Vector<2>(0.210832, 0.51741));
 ```
 
+### Broucke Orbit
 
+A Broucke orbit looks like two bodies orbitings each other, whihc in turn are orbiting around a third body.
+
+Symmetrical stable version:
+
+``` cpp
+bodies[0].mass = 4;
+bodies[0].position = Vector<2>(0.336130095, 0) * 4;
+bodies[0].velocity = Vector<2>(0, 1.532431537);
+bodies[1].mass = 4;
+bodies[1].position = Vector<2>(0.7699893804, 0) * 4;
+bodies[1].velocity = Vector<2>(0, -0.6287350978);
+bodies[2].mass = 4;
+bodies[2].position = Vector<2>(-1.1061194753, 0) * 4;
+bodies[2].velocity = Vector<2>(0, -0.9036964391);
+```
+
+Asymmetrical stabel version:
+
+``` cpp
+bodies[0].mass = 4;
+bodies[0].position = Vector<2>(-2.855484,-0.099324);
+bodies[0].velocity = Vector<2>(-0.14822,-0.47005);
+bodies[1].mass = 4;
+bodies[1].position = Vector<2>(-1.785072,0.406224);
+bodies[1].velocity = Vector<2>(-1.47620,1.02377);
+bodies[2].mass = 4;
+bodies[2].position = Vector<2>(4.640556,-0.306904);
+bodies[2].velocity = Vector<2>(-0.20557,1.39997);
+```
+
+More complex stable orbits can be created, but these tend to destabilise over a short time due to errors introduced by the approximate nature of the Euler method used.
 
 ## Further Reading
 
