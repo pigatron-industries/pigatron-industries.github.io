@@ -57,15 +57,13 @@ $$\vec{a_{1}} = \frac{Gm_{2}}{r_{12}^3}\vec{r_{12}} + \frac{Gm_{3}}{r_{13}^3}\ve
 
 ### Euler method
 
-From Newton's equations, we can calculate an acceleration based on the positions of the bodies. We need to turn this into a velocity and a position and to do this we can use Euler's method for solving differential equations. It uses a series of time steps to calculate the positions at certain points in time. It is the simplest way to approximate differential equations but also has the largest error, which is proportional to the size of the time step used. It has to be applied once to get velocity and again to get position.
+From Newton's equations, we can calculate an acceleration based on the positions of the bodies. We need to turn this into a velocity and a position and to do this we can use Euler's method for solving differential equations. It uses a series of time steps to calculate the positions at certain points in time. It is the simplest way to approximate differential equations but also has the largest error, which is proportional to the size of the time step used.
 
-- $$\Delta t$$ is the size of the time step.
-- $$\Delta v$$ is the change in velocity.
-- $$\Delta p$$ is the change in position.
+It can be applied to the previous velocity and accelaration by multiplying by the time step size, $$\delta t$$:
 
-$$\Delta v = a \Delta t$$
+$$\vec{v}_{1} = \vec{v}_{0}+\vec{a} \delta t$$
 
-$$\Delta p = v \Delta t$$
+$$\vec{p}_{1} = \vec{p}_{0}+\vec{v} \delta t$$
 
 There are more accurate methods such as the Runge-Kutta method, but this is also more complicated and would require us to apply Newton's equation multiple times for each sample.
 
