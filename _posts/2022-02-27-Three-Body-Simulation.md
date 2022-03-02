@@ -4,19 +4,9 @@ hidden: true
 
 # Three Body Simulation
 
-This is how I went about writing the code to simulate 3 planets based on Newtons laws of motion.
-The resulting code was the basis of a eurorack hardware module which outputs the position of each planet as an X and Y voltage.
+One day I decided it would be nice to make a simulation of three planetary bodies. I wanted to write code that would run on Teensy microcontroler for the purpose of controlling eurorack synthesisir modules. The result would be 6 output voltages that represent the current X and Y coordinates of the three bodies.
 
-
-## Newton's equations of motion
-
-The 2 equations that we will need are, Newton's second law:
-
-$$F = ma$$
-
-and, Newton's equation of universal gravitation:
-
-$$F = \frac{Gm_{1}m_{2}}{r^2}$$
+This is how I went about writing the code to do this.
 
 
 ## Coordinate system
@@ -27,7 +17,18 @@ The origin of the system will be located at the centre of mass of the three bodi
 
 ![Three body system coordinates](/assets/images/three_body_simulation_coordinates.drawio.png)
 
+
 ## The maths
+
+# Newton's equations of motion
+
+The 2 equations that we will need are, Newton's second law:
+
+$$F = ma$$
+
+and, Newton's equation of universal gravitation:
+
+$$F = \frac{Gm_{1}m_{2}}{r^2}$$
 
 The following equations use i and j subscripts to represent 2 of the three bodies.
 
@@ -56,6 +57,7 @@ This gives the acceleration of one of the bodies caused by one of the other bodi
 
 $$\vec{a_{1}} = \frac{Gm_{2}}{r_{12}^3}\vec{r_{12}} + \frac{Gm_{3}}{r_{13}^3}\vec{r_{13}}$$
 
+
 ### Euler method
 
 From Newton's equations, we can calculate an acceleration based on the positions of the bodies. We need to turn this into a velocity and a position and to do this we can use Euler's method for solving differential equations. It uses a series of time steps to calculate the positions at certain points in time. It is the simplest way to approximate differential equations but also has the largest error, which is proportional to the size of the time step used.
@@ -67,6 +69,7 @@ $$\vec{v}_{1} = \vec{v}_{0}+\vec{a} \delta t$$
 $$\vec{p}_{1} = \vec{p}_{0}+\vec{v} \delta t$$
 
 There are more accurate methods such as the Runge-Kutta method, but this is also more complicated and would require us to apply Newton's equation multiple times for each sample.
+
 
 ## The code
 
@@ -96,7 +99,7 @@ class ThreeBody {
 ```
 
 The bulk of the work is done in the calculateAcceleration function. This calculates the acceleration for a single body, the index being passed in as a parameter.
-It loops through the other bodies, and implemets Newton's equations to add each acceleration to the current bodies acceleration:
+It loops through the other bodies, and implemets Newton's equations to add each acceleration to the current bodies acceleration. The vector r is calculated as the difference between 2 bodies and the vector class provides a length function which uses Pythagoras' equation to calculate the length.
 
 ``` cpp
 void ThreeBody::calculateAcceleration(int i) {
@@ -111,7 +114,7 @@ void ThreeBody::calculateAcceleration(int i) {
 }
 ```
 
-Note the use of a Vector class with overriden operators means the calculation using vectors looks a lot easier to read han if e ere dealing direclty with x and y coordinates.
+Note the use of a Vector class with overriden operators means the calculation using vectors looks a lot easier to read than if we were dealing directly with x and y coordinates.
 
 To put it all together, the main process function calls this for each body
 
@@ -133,3 +136,21 @@ for(int i = 0; i < BODIES; i++) {
 }
 ```
 
+
+## Initial conditions
+
+The only thing that remains is setting of initial conditions. The initial conditions determine if the bodies fall into a stable orbit or not. In an unstable orbit the bodies will tend to fly apart eventually and never come back. It's important to pick initial velocities with a net zero momentum, otherwise the system will drift away from the origin.
+
+There are a few simple stable orbits we can create.
+
+### Lagrange points
+
+Lagrange points are points in the standard orbit of 2 bodies (usually one massive like the sun and one smaller like the Earth), where a third body will form a stable orbit.
+
+![Lagrange points](/assets/images/three_body_simulation_lagrange_points.drawio.png)
+
+
+## Further Reading
+
+[Periodic Planar Three-Body Orbits](https://observablehq.com/@rreusser/periodic-planar-three-body-orbits)
+[Three Body Gallery](http://three-body.ipb.ac.rs/)
