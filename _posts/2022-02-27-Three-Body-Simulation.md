@@ -95,3 +95,41 @@ class ThreeBody {
 };
 ```
 
+The bulk of the work is done in the calculateAcceleration function. This calculates the acceleration for a single body, the index being passed in as a parameter.
+It loops through the other bodies, and implemets Newton's equations to add each acceleration to the current bodies acceleration:
+
+``` cpp
+void ThreeBody::calculateAcceleration(int i) {
+    bodies[i].acceleration = Vector<2>(0, 0);
+    for(int j = 0; j < BODIES; j++) {
+        if(j != i) {
+            Vector<2> r = bodies[j].position - bodies[i].position;
+            float dist = r.length();
+            bodies[i].acceleration += r * ((G * bodies[j].mass) / (dist*dist*dist));
+        }
+    }
+}
+```
+
+Note the use of a Vector class with overriden operators means the calculation using vectors looks a lot easier to read han if e ere dealing direclty with x and y coordinates.
+
+To put it all together, the main process function calls this for each body
+
+``` cpp
+void ThreeBody::process() {
+    for(int i = 0; i < BODIES; i++) {
+        calculateAcceleration(i);
+    }
+    ...
+}
+```
+
+Then applies Eulers method to each body by multiplying acceleration by the time step, then multiply velcoity by the time step.
+
+``` cpp
+for(int i = 0; i < BODIES; i++) {
+    bodies[i].velocity += bodies[i].acceleration * dt;
+    bodies[i].position += bodies[i].velocity * dt;
+}
+```
+
