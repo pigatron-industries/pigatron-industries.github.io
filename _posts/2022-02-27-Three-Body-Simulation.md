@@ -2,7 +2,7 @@
 hidden: true
 ---
 
-# 3-Body Simulation
+# Three Body Simulation
 
 This is how I went about writing the code to simulate 3 planets based on Newtons laws of motion.
 The resulting code was the basis of a eurorack hardware module which outputs the position of each planet as an X and Y voltage.
