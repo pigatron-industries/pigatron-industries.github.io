@@ -69,7 +69,7 @@ There are more accurate methods such as the Runge-Kutta method, but this is also
 
 ## The code
 
-We will use a vector class to store the various properties of a body and a Body class to store the current state. A Body has three variable properties; position, velocity, acceleratio and one fixed scalar property; mass:
+We will use a vector class to store the various properties of a body and a Body class to store the current state. A Body has three variable properties; position, velocity, acceleration and one fixed scalar property; mass:
 
 The class looks like this:
 
