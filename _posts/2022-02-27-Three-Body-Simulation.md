@@ -83,4 +83,14 @@ class Body {
 };
 ```
 
+The main simulation class called ThreeBody needs to have an array of 3 bodies and a time step variable:
+
+``` cpp
+class ThreeBody {
+    ...
+    private:
+        Body bodies[3];
+        float dt;
+};
+```
 
