@@ -124,7 +124,7 @@ void ThreeBody::process() {
 }
 ```
 
-Then applies Eulers method to each body by multiplying acceleration by the time step, then multiply velcoity by the time step.
+Then it applies Eulers method to each body by multiplying acceleration by the time step, then multiplying velocity by the time step to get the position.
 
 ``` cpp
 for(int i = 0; i < BODIES; i++) {
