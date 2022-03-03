@@ -235,6 +235,8 @@ More complex stable orbits can be created, but these tend to destabilise over a 
 
 ## Further Reading
 
+- [Programming a three-body problem in JavaScript](https://evgenii.com/blog/three-body-problem-simulator/)
+
 - [Periodic Planar Three-Body Orbits](https://observablehq.com/@rreusser/periodic-planar-three-body-orbits)
 
-- [Three Body Gallery](http://three-body.ipb.ac.rs/)
+- [Three Body Gallery - Institute of Physics Belgrade](http://three-body.ipb.ac.rs/)
