@@ -167,7 +167,7 @@ bodies[2].velocity = Vector<2>(-5, 0);
 
 Three equal bodies can be arranged to orbit in a figure of 8. The starting positions of the bodies should be on a line and equal distance from each other. The initial velocity vector of the centre body should be twice the magnitude and in the exact opposite direction of the outer bodies:
 
-![Lagrange points](/assets/images/three_body_simulation_figure8.drawio.png)
+![Figure 8 orbit](/assets/images/three_body_simulation_figure8.drawio.png)
 
 A handy function can be written to create a system like this.
 
@@ -200,6 +200,8 @@ ThreeBody::initEqualInlineSystem(4, Vector<2>(0.210832, 0.51741));
 ### Broucke Orbit
 
 A Broucke orbit looks like two bodies orbitings each other, whihc in turn are orbiting around a third body.
+
+![Broucke orbit](/assets/images/three_body_simulation_broucke.drawio.png)
 
 Symmetrical stable version:
 
