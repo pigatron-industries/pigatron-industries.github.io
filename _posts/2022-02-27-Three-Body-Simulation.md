@@ -199,7 +199,7 @@ ThreeBody::initEqualInlineSystem(4, Vector<2>(0.210832, 0.51741));
 
 ### Broucke Orbit
 
-A Broucke orbit looks like two bodies orbitings each other, whihc in turn are orbiting around a third body.
+A Broucke orbit looks like two bodies orbitings each other, which in turn are orbiting around a third body in a larger orbit.
 
 ![Broucke orbit](/assets/images/three_body_simulation_broucke.drawio.png)
 
