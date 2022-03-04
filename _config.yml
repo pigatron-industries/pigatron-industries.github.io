@@ -3,5 +3,6 @@ plugins:
 - jekyll-remote-theme
 layouts: /pigatron-industries.common/_layouts
 includes_dir: /pigatron-industries.common/_includes
+exclude: /pigatron-industries.common
 title: Pigatron Industries
 description: []
