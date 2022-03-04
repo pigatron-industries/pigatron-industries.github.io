@@ -1,0 +1,3 @@
+[submodule "pigatron-industries.common"]
+	path = pigatron-industries.common
+	url = https://github.com/pigatron-industries/pigatron-industries.common.git
