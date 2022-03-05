@@ -26,7 +26,8 @@ body {
 }
 
 .inner {
-    width: 920px;
+    width: auto;
+    max-width: 920px;
     float: left;
     margin: 0px;
 }
