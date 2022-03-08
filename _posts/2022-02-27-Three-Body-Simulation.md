@@ -68,7 +68,7 @@ $$\vec{v}_{1} = \vec{v}_{0}+\vec{a} \delta t$$
 
 $$\vec{p}_{1} = \vec{p}_{0}+\vec{v} \delta t$$
 
-There are more accurate methods such as the Runge-Kutta method, but this is also more complicated and would require us to apply Newton's equation multiple times for each sample.
+There are more accurate methods such as the Runge-Kutta method, but this is also more complicated and would require us to apply Newton's equation multiple times for each sample. Since the code is designed to run on a microcontroller, we are trading speed for accuracy.
 
 
 ## The code
@@ -99,7 +99,7 @@ class ThreeBody {
 ```
 
 The bulk of the work is done in the calculateAcceleration function. This calculates the acceleration for a single body, the index being passed in as a parameter.
-It loops through the other bodies, and implemets Newton's equations to add each acceleration to the current bodies acceleration. The vector r is calculated as the difference between 2 bodies and the vector class provides a length function which uses Pythagoras' equation to calculate the length.
+It loops through the other bodies, and implements Newton's equations to add each acceleration to the current bodies acceleration. The vector r is calculated as the difference between 2 bodies and the vector class provides a length function which uses Pythagoras' equation to calculate the length.
 
 ``` cpp
 void ThreeBody::calculateAcceleration(int i) {
