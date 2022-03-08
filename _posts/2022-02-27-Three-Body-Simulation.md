@@ -233,6 +233,12 @@ bodies[2].velocity = Vector<2>(-0.20557,1.39997);
 
 More complex stable orbits can be created, but these tend to destabilise over a short time due to errors introduced by the approximate nature of the Euler method used.
 
+## Possible Improvements
+
+Because of the low accuracy of the integration method used, it may not be possible to simulate some of the more complex orbits with them becoming unstable quickly. One possible way of improving the accuracy is to use an adaptive time step. Since the bodies tend to travel faster when closer together we could try reducing the time step when the bodies are closer together.
+
+Another thing we could do if we are interested in keeping an orbit stable is to reset the simulation to the exact initial conditions after we know that one complete orbit should have been made. This would prevent the second 'lap' of the orbit from being slightly different to the first and building up error over time.
+
 ## Further Reading
 
 - [Programming a three-body problem in JavaScript](https://evgenii.com/blog/three-body-problem-simulator/)
