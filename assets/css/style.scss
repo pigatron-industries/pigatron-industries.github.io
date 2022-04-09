@@ -128,8 +128,10 @@ hr {
 /* Image gallery */
 
 .image-gallery {
+    position: absolute;
     overflow: auto; 
     margin-left: 0;
+    margin-right: 295px;
     background-color: #444;
     padding: 1px;
 }

@@ -1,3 +1,3 @@
 # Oscilloscope Gallery
 
-{% include gallery.html folder="oscilloscope" imgheight="243" %}
+{% include gallery.html folder="oscilloscope" imgheight="281" %}
