@@ -1,7 +1,3 @@
----
-hidden: true
----
-
 # Three Body Simulation
 
 One day I decided it would be nice to make a simulation of three planetary bodies. I wanted to write code that would run on Teensy microcontroler for the purpose of controlling eurorack synthesisir modules. The result would be 6 output voltages that represent the current X and Y coordinates of the three bodies.
