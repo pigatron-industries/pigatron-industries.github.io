@@ -129,7 +129,9 @@ hr {
 
 .image-gallery {
     overflow: auto; 
-    margin-left: -1% !important;
+    margin-left: 0;
+    background-color: #444;
+    padding: 1px;
 }
 .image-gallery li {
     float: left; 
