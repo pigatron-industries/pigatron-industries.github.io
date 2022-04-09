@@ -137,13 +137,14 @@ hr {
     margin-right: 295px;
     background-color: #444;
     padding: 1px;
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
 }
 .image-gallery li {
     float: left; 
     display: block; 
     margin: 1px; 
     padding-left: 0;
-    width: 33.1%;
 }
 .image-gallery li a {
     text-align: center; 
