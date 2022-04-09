@@ -26,9 +26,8 @@ body {
 
 .inner {
     width: auto;
-    max-width: 920px;
-    float: left;
-    margin: 0px;
+    margin-left: 295px;
+    margin-right: 295px;
 }
 
 .inner.header {
@@ -79,6 +78,10 @@ body {
 #downloads {
     margin-top: 40px;
     float: right;
+}
+
+#main_conent {
+    max-width: 920px;
 }
 
 header h1 {
