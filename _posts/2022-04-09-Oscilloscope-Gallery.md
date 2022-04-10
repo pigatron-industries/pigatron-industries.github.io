@@ -1,3 +1,3 @@
 # Oscilloscope Gallery
 
-{% include gallery.html folder="oscilloscope" %}
+{% include gallery.html folder="/oscilloscope/" %}
