@@ -84,7 +84,7 @@ body {
     max-width: 920px;
 }
 
-#container .inner img {
+#container .inner img, #container .inner table {
     max-width: 99%;
 }
 
@@ -130,6 +130,11 @@ hr {
     margin-top: 2em;
     margin-bottom: 2em;
     background: linear-gradient(to right, transparent, #999, transparent);
+}
+
+td, th {
+    border: 1px solid #cccccc;
+    padding: 0px 5px;
 }
 
 /* Image gallery */
