@@ -11,7 +11,7 @@ We will simulate the 3 bodies in 2 dimensions. The properties of each body, such
 
 The origin of the system will be located at the centre of mass of the three bodies. This is becasue the centre of mass of any number of bodies always remains motionless.
 
-![Three body system coordinates](/assets/images/three_body_simulation_coordinates.drawio.png)
+![Three body system coordinates](/assets/images/2022-02-27-three-body-simulation/three_body_simulation_coordinates.drawio.png)
 
 
 ## The maths
@@ -143,7 +143,7 @@ There are a few simple stable orbits we can create.
 
 Lagrange points are points in the standard orbit of 2 bodies (usually one massive like the sun and one smaller like the Earth), where a third body will form a stable orbit.
 
-![Lagrange points](/assets/images/three_body_simulation_lagrange_points.drawio.png)
+![Lagrange points](/assets/images/2022-02-27-three-body-simulation/three_body_simulation_lagrange_points.drawio.png)
 
 A simple lagrange L3 orbit can be produced by adding a large static body at the origin and two smaller bodies at either side with velocity in the opposite directions:
 
@@ -163,7 +163,7 @@ bodies[2].velocity = Vector<2>(-5, 0);
 
 Three equal bodies can be arranged to orbit in a figure of 8. The starting positions of the bodies should be on a line and equal distance from each other. The initial velocity vector of the centre body should be twice the magnitude and in the exact opposite direction of the outer bodies:
 
-![Figure 8 orbit](/assets/images/three_body_simulation_figure8.drawio.png)
+![Figure 8 orbit](/assets/images/2022-02-27-three-body-simulation/three_body_simulation_figure8.drawio.png)
 
 A handy function can be written to create a system like this.
 
@@ -197,7 +197,7 @@ ThreeBody::initEqualInlineSystem(4, Vector<2>(0.210832, 0.51741));
 
 A Broucke orbit looks like two bodies orbitings each other, which in turn are orbiting around a third body in a larger orbit.
 
-![Broucke orbit](/assets/images/three_body_simulation_broucke.drawio.png)
+![Broucke orbit](/assets/images/2022-02-27-three-body-simulation/three_body_simulation_broucke.drawio.png)
 
 Symmetrical stable version:
 
