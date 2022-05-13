@@ -2,6 +2,8 @@
 
 In order to understand why we generally use 12 equally spaced notes in musical scales, I put together some visualisations which show the notes/intervals against dissonance/consonance curves. 
 
+The Python code used to generate the plots can be found [here](https://github.com/pigatron-industries/xen_quantizer/tree/main/python)
+
 It's generally known that the most consonant intervals in music are where the difference in frequencies of 2 notes played together can be expressed as simple ratios. e.g. an octave is a ratio of 2/1, which means the root note with frequency of say 440Hz is played at the same time as a note with double the frequency, 880Hz. A perfect fifth is the ratio of 3/2 which puts the note frequency at 660Hz.
 
 Instead of using frequency ratios it's easier to visualize this on a linear scale where the root note is a 0 and the octave is at 1. Then 2 octaves would be 2. Ratios can be converted using the base 2 logarithm, e.g the perfect fifth: log2(3/2) = 0.585
