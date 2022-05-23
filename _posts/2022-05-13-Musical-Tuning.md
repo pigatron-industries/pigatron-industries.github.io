@@ -18,7 +18,9 @@ $$2^{0.585} = 1.5 = 3/2$$
 
 To get from an octave value to a frequency, the following equation can be used:
 
-$$a2^{v}$$
+$$f = a2^{v}$$
+
+where $a$ is the root frequency and $v$ is the octave value.
 
 Tuning is often expressed in cents, where each semitone in the 12 tone scale is divided by 100. Octaves can easily be converted to cents by multiplying by 1200:
 
@@ -111,7 +113,7 @@ plot.plot()
 
 The most consonant intervals, the Perfect Fifth (3/2) and the Perfect Fourth (4/3) match notes on this scale nearly perfectly, which makes it quite useful. Other consonant intervals are slightly off, but the human ear can tolerate small differences in pitch without noticing too much.
 
-Plotting in intervals around a circle reveals an almost but notquite symmetrical pattern. Most of the intervals have inverse versions e.g. 1/2 - 3/2 = 4/3, or an octave minus a fifth is equal to a fourth.
+Plotting in intervals around a circle reveals an almost symmetrical pattern of simple ratios. Most of the intervals have inverse versions e.g. 1/2 - 3/2 = 4/3, or an octave minus a fifth is equal to a fourth.
 
 
 ```python
