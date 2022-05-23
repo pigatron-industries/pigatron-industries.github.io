@@ -6,7 +6,25 @@ The Python code used to generate the plots can be found [here](https://github.co
 
 It's generally known that the most consonant intervals in music are where the difference in frequencies of 2 notes played together can be expressed as simple ratios. e.g. an octave is a ratio of 2/1, which means the root note with frequency of say 440Hz is played at the same time as a note with double the frequency, 880Hz. A perfect fifth is the ratio of 3/2 which puts the note frequency at 660Hz.
 
-Instead of using frequency ratios it's easier to visualize this on a linear scale where the root note is a 0 and the octave is at 1. Then 2 octaves would be 2. Ratios can be converted using the base 2 logarithm, e.g the perfect fifth: $$log_2(3/2) = 0.585$$
+Instead of using frequency ratios it's easier to visualize this on a linear scale where the root note is a 0 and the octave is at 1. Then 2 octaves would be 2. 
+
+Ratios can be converted using the base 2 logarithm, e.g the perfect fifth: 
+
+$$log_2(3/2) = 0.585$$
+
+To convert from octaves back to ratio you can raise 2 to the power of the value:
+
+$$2^{0.585} = 1.5 = 3/2$$
+
+To get from an octave value to a frequency, the following equation can be used:
+
+$$a2^{v}$$
+
+Tuning is often expressed in cents, where each semitone in the 12 tone scale is divided by 100. Octaves can easily be converted to cents by multiplying by 1200:
+
+$$0.585 \times 1200 = 702$$
+
+
 
 ## Dissonance Curve
 
@@ -205,7 +223,9 @@ Here there is a consonant dip at 3/1 interval which is an octave (2/1) plus a fi
 
 $$log_2(2/1) + log_2(3/2) = log_2(3/1)$$
 
-There is no peak at the fifth. The interval 3/1 can be called a tritave (Also a perfect twelfth, but this name is based on step sizes in 12 edo).
+The interval 3/1 can be called a tritave (Also a perfect twelfth, but this name is based on step sizes in 12 edo).
+
+Note also, there is no peak at the fifth like the other graphs. 
 
 These intervals fit better with a 13 note equally divided tritave. This is the basis of the [Bohlen-Pierce scale](https://en.wikipedia.org/wiki/Bohlen%E2%80%93Pierce_scale).
 
