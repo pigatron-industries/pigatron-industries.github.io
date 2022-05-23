@@ -91,7 +91,24 @@ plot.plot()
     
 
 
-This most consonant intervals, the Perfect Fifth (3/2) and the Perfect Fourth (4/3) match notes on this scale nearly perfectly, which makes it quite useful. Other consonant intervals are slightly off, but the human ear can tolerate small differences in pitch without noticing too much.
+The most consonant intervals, the Perfect Fifth (3/2) and the Perfect Fourth (4/3) match notes on this scale nearly perfectly, which makes it quite useful. Other consonant intervals are slightly off, but the human ear can tolerate small differences in pitch without noticing too much.
+
+Plotting in intervals around a circle reveals an almost but notquite symmetrical pattern. Most of the intervals have inverse versions e.g. 1/2 - 3/2 = 4/3, or an octave minus a fifth is equal to a fourth.
+
+
+```python
+plot = tuningplot.TuningPolarPlot(4, 4, 2, 1)
+plot.plotRatios([(1, 1), (3, 2), (4, 3), (5, 3), (5, 4), (6, 5), (7, 4), (7, 5), (8,5), (8,7)])
+plot.plotTuning(tuning_12edo)
+plot.plotDissonance([1, 2, 3, 4, 5, 6, 7, 8], 5.5)
+plot.plot()
+```
+
+
+    
+![png](/assets/images/2022-05-13-tuning/tuning_10_0.png)
+    
+
 
 There are other equal divisions of the octave that can be used to match other intervals closer than 12edo.
 
@@ -111,7 +128,7 @@ plot.plot()
 
 
     
-![png](/assets/images/2022-05-13-tuning/tuning_10_0.png)
+![png](/assets/images/2022-05-13-tuning/tuning_12_0.png)
     
 
 
@@ -162,7 +179,7 @@ plot.plot()
 
 
     
-![png](/assets/images/2022-05-13-tuning/tuning_13_0.png)
+![png](/assets/images/2022-05-13-tuning/tuning_15_0.png)
     
 
 
@@ -180,7 +197,7 @@ plot.plot()
 
 
     
-![png](/assets/images/2022-05-13-tuning/tuning_15_0.png)
+![png](/assets/images/2022-05-13-tuning/tuning_17_0.png)
     
 
 
@@ -206,6 +223,6 @@ plot.plot()
 
 
     
-![png](/assets/images/2022-05-13-tuning/tuning_17_0.png)
+![png](/assets/images/2022-05-13-tuning/tuning_19_0.png)
     
 
