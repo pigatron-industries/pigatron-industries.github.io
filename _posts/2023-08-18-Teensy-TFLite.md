@@ -1,3 +1,6 @@
+---
+title: "Running a Tensorflow Lite model on a Teeny microcontroller"
+---
 # Running a Tensorflow Lite model on a Teeny microcontroller
 
 
@@ -82,7 +85,7 @@ Serial.println(s);
 lib_deps = https://github.com/pigatron-industries/xen_machinelearning.git
 ```
 
-    and also the following build flag:
+and also the following build flag:
 
 ```
 build_flags = -D ARDUINOSTL_M_H
