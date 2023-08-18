@@ -1,7 +1,3 @@
----
-layout: post
-title: "Running a Tensorflow Lite model on a Teeny microcontroller"
----
 # Running a Tensorflow Lite model on a Teeny microcontroller
 
 
@@ -41,14 +37,16 @@ build_flags = -D ARDUINOSTL_M_H
 ```
 
 6. tflite/tensorflow/lite/micro/kernels/lstm_eval_common.cc
-Remove the double cast from line 192:
+
+    Remove the double cast from line 192:
 ```c++
 cell_state_info.quantized_cell_clip = static_cast<int16_t>(
     std::min(std::max(cell_clip / cell_state_scale, -32768.0), 32767.0));
 ```
 
 7. tflite/third_party/gemmlowp/fixedpoint/fixedpoint.h
-Add a double cast on line 519+:
+
+    Add a double cast on line 519+:
 ```c++
         std::max(static_cast<double>(round(x * static_cast<double>(1ll << kFractionalBits))),
                  min_bound),
@@ -56,7 +54,8 @@ Add a double cast on line 519+:
 ```
 
 8. tflite/tensorflow/lite/kernels/cppmath.h
-Declare TfLiteRound directly instead of with macro expansion:
+
+    Declare TfLiteRound directly instead of with macro expansion:
 ```c++
 // DECLARE_STD_GLOBAL_SWITCH1(TfLiteRound, round);
 template <class T>                                
@@ -66,7 +65,8 @@ inline T TfLiteRound(const T x) {
 ```
 
 9. tflite/tensorflow/lite/micro/debug_log.cc
-Import Arduino.h and change fprintf to Serial.println:
+
+    Import Arduino.h and change fprintf to Serial.println:
 ```c++
 #import <Arduino.h>
 ```
@@ -76,13 +76,13 @@ Serial.println(s);
 
 10. It should now be possible to compile the source without errors. I've done this and checked the resulting code into the [xen_machinelearning](https://github.com/pigatron-industries/xen_machinelearning) repository.
 
-This repository can be used as a library in other projects by adding it as a dependency in platformio.ini:
+    This repository can be used as a library in other projects by adding it as a dependency in platformio.ini:
 
 ```
 lib_deps = https://github.com/pigatron-industries/xen_machinelearning.git
 ```
 
-and also the following build flag:
+    and also the following build flag:
 
 ```
 build_flags = -D ARDUINOSTL_M_H
