@@ -1,3 +1,7 @@
+---
+layout: post
+title: "Running a Tensorflow Lite model on a Teeny microcontroller"
+---
 # Running a Tensorflow Lite model on a Teeny microcontroller
 
 
