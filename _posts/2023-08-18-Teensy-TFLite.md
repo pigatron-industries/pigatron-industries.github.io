@@ -1,7 +1,7 @@
 ---
 title: "Running a Tensorflow Lite model on a Teeny microcontroller"
 ---
-# Running a Tensorflow Lite model on a Teeny microcontroller
+# Running a Tensorflow Lite model on a Teensy microcontroller
 
 
 ## Compiling
@@ -90,5 +90,3 @@ This can be copied into /lib folder in the project and will need adding to the b
     ```
     build_flags = -D ARDUINOSTL_M_H
     ```
-
-
