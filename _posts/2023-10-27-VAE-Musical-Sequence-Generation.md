@@ -1,6 +1,6 @@
 ---
 title: "Musical Sequence Generation in Eurorack Using a Variational Autoencoder"
-published: true
+published: false
 ---
 # Musical Sequence Generation in Eurorack Using a Variational Autoencoder
 
