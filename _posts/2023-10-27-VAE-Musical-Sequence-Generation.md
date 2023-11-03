@@ -61,7 +61,7 @@ The latentDim is the number of dimensions in latent space which will correspond 
 All that remains is to train the model and save it:
 
 ``` python
-trainer.train(batchSize = 32, epochs = 500, learning_rate = 0.005)
+trainer.train(batchSize = 32, epochs = 500, learningRate = 0.005)
 trainer.saveModel(quantize = None)
 ```
 
