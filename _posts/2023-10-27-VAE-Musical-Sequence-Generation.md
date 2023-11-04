@@ -137,25 +137,25 @@ This funnction can be used to plot a specific training example at the input and 
 
 The tflite format has a very limited set of metadata that can be saved in the model, so a sequence of bytes is embedded in the decription field of the tflite file. This metadata is needed during inference and has the following format:
 
-| content            | length (bytes) |
-|--------------------|----------------|
+| content            | length (bytes) | description |
+|--------------------|----------------|-------------|
 | string "seqdec"    | 6              |
-| number of pitches  | 1              |
-| sequence length    | 1              |
-| latent scale       | 1              |
+| number of pitches  | 1              | Number of possible notes in each time step
+| sequence length    | 1              | Total length of the sequence
+| latent scale       | 1              | The range of values that each latent dimension can be. e.g. a value of 3 means the latent value can be netween -3 and +3.
 
 Some extra metadata is required for percussion models:
 
 | content                | length (bytes)   | description |
 |------------------------|------------------|-------------|
 | string "perdec"        | 6                |
-| number of instruments  | 1                |
-| sequence length        | 1                |
+| number of instruments  | 1                | Number of possible notes in each time step
+| sequence length        | 1                | Total length of the sequence
 | latent scale           | 1                | The range of values that each latent dimension can be. e.g. a value of 3 means the latent value can be netween -3 and +3.
 | number of groups       | 1                | Number of percussion grouops represented in the output
 | group sizes            | number of groups | The number of instruments in each percussion group
 
-# Hardware inference
+## Hardware inference
 
 The [xen_quantizer](https://github.com/pigatron-industries/xen_quantizer) repository contains hardware design and code for inference using the trained tflite model.
 
