@@ -104,7 +104,7 @@ There are a few functions that can be used to check if the model is well trained
 trainer.calcRecall()
 ```
 
-This calculates how well the trained model is able reproduce the training data exactly. Recall should be above 0% but ideally not too high as it is not the intention to copy training data exactly but to learn the underlying structures and generate new material. A value of 10% to 20% should be ok.
+This calculates how well the trained model is able reproduce the training data. A recall of 50% represents no training at all as even a compeltely random output will be correct 50% of the time for each element. Values of above 50% mean that training has worked correctly.
 
 ``` python
 trainer.plotLatentSpace()
