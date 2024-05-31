@@ -34,11 +34,11 @@ The curve below shows the dissonance of 2 sine waves played at increasing freque
 
 
 ```python
-import tuning as tuning
-import tuningplot as tuningplot
+from lib.tuning import Tuning
+from lib.tuningplot import TuningPlot, TuningPolarPlot
 %matplotlib inline
 
-plot = tuningplot.TuningPlot('h', 14)
+plot = TuningPlot('h', 14)
 plot.plotDissonance([1], 1)
 plot.plotRatios([(1, 1), (2, 1)])
 plot.plot()
@@ -60,7 +60,7 @@ For instance the following curve is plotted from a sound with the first 6 harmon
 
 
 ```python
-plot = tuningplot.TuningPlot('h', 14)
+plot = TuningPlot('h', 14)
 plot.plotDissonance([1, 2, 3, 4, 5, 6])
 plot.plotRatios([(1, 1), (2, 1), (3, 2), (4, 3), (5, 3), (5, 4), (6, 5)])
 plot.plot()
@@ -78,7 +78,7 @@ This is how the curve changes when more partials are added:
 
 
 ```python
-plot = tuningplot.TuningPlot('h', 14)
+plot = TuningPlot('h', 14)
 plot.plotDissonance([1, 2, 3, 4, 5, 6, 7, 8, 9], 5.5)
 plot.plotRatios([(1, 1), (2, 1), (3, 2), (4, 3), (5, 3), (5, 4), (6, 5), (7, 4), (7, 5), (7, 6), (8,5), (8,7), (9, 5), (9, 7), (9, 8)])
 plot.plot()
@@ -96,9 +96,9 @@ The following graph shows these 12 intervals against the dissonance curve:
 
 
 ```python
-tuning_12edo = tuning.createEqualDivisionTuning("12edo", 12, 1, ['0 C','1 C#','2 D','3 D#','4 E','5 F','6 F#','7 G','8 G#','9 A','10 A#','11 B'])
+tuning_12edo = Tuning.createEqualDivisionTuning("12edo", 12, 1, ['0 C','1 C#','2 D','3 D#','4 E','5 F','6 F#','7 G','8 G#','9 A','10 A#','11 B'])
 
-plot = tuningplot.TuningPlot('h', 14)
+plot = TuningPlot('h', 14)
 plot.plotRatios([(1, 1), (2, 1), (3, 2), (4, 3), (5, 3), (5, 4), (6, 5), (7, 4), (7, 5), (8,5), (9, 8), (9, 5)])
 plot.plotDissonance([1, 2, 3, 4, 5, 6, 7, 8, 9], 5.5)
 plot.plotTuning(tuning_12edo)
@@ -117,7 +117,7 @@ Plotting in intervals around a circle reveals an almost symmetrical pattern of s
 
 
 ```python
-plot = tuningplot.TuningPolarPlot(4, 4, 2, 1)
+plot = TuningPolarPlot(4, 4, 2, 1)
 plot.plotRatios([(1, 1), (3, 2), (4, 3), (5, 3), (5, 4), (6, 5), (7, 4), (7, 5), (8,5), (8,7)])
 plot.plotTuning(tuning_12edo)
 plot.plotDissonance([1, 2, 3, 4, 5, 6, 7, 8], 5.5)
@@ -130,15 +130,42 @@ plot.plot()
     
 
 
+If the dissonance curve is extended beyond the octave then consonant dips can be seen which match the harmonic series.
+
+* The graph shows 3 octaves starting at 1/1. The second ocatve starts at 2/1, the third at 4/1 to 8/1
+* The differences between adjacent harmonics follows a pattern:
+   * (2/1) / (1/1) = 2/1 (Octave)
+   * (3/1) / (2/1) = 3/2 (Fifth)
+   * (4/1) / (3/1) = 4/3 (Fourth)
+   * (5/1) / (4/1) = 5/4 (Major Third)
+   * (6/1) / (5/1) = 6/5 (Minor Third)
+
+
+```python
+plot = TuningPlot('h', 20, 3)
+plot.plotDissonance([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 8)
+plot.plotRatios([(1, 1), (2, 1), (3, 1), (4, 1), (5, 1), (6, 1), (7, 1), (8, 1)])
+plot.plotTuning(tuning_12edo, 3)
+plot.plot()
+```
+
+
+    
+![png](/assets/images/2022-05-13-tuning/tuning_12_0.png)
+    
+
+
+### Alternative Tunings
+
 There are other equal divisions of the octave that can be used to match other intervals closer than 12edo.
 
 The graph below shows a scale with 19 equal divisions. 
 
 
 ```python
-tuning_19edo = tuning.createEqualDivisionTuning("19edo", 19, 1)
+tuning_19edo = Tuning.createEqualDivisionTuning("19edo", 19, 1)
 
-plot = tuningplot.TuningPlot('h', 14)
+plot = TuningPlot('h', 14)
 plot.plotRatios([(1, 1), (2, 1), (3, 2), (4, 3), (5, 3), (5, 4), (6, 5), (7, 4), (7, 5), (7, 6), (8,5), (9, 8), (9, 7), (9, 5)])
 plot.plotDissonance([1, 2, 3, 4, 5, 6, 7, 8, 9], 5.5)
 plot.plotTuning(tuning_12edo)
@@ -148,7 +175,7 @@ plot.plot()
 
 
     
-![png](/assets/images/2022-05-13-tuning/tuning_12_0.png)
+![png](/assets/images/2022-05-13-tuning/tuning_15_0.png)
     
 
 
@@ -166,7 +193,7 @@ A couple of examples are shown below, but there are many more examples on the Wi
 
 
 ```python
-tuning_justdiatonic = tuning.Tuning("Just Diatonic", [])
+tuning_justdiatonic = Tuning("Just Diatonic", [])
 tuning_justdiatonic.addIntervalRatio(1, "1:1")
 tuning_justdiatonic.addIntervalRatio(9/8, "9:8")
 tuning_justdiatonic.addIntervalRatio(5/4, "5:4")
@@ -175,7 +202,7 @@ tuning_justdiatonic.addIntervalRatio(3/2, "3:2")
 tuning_justdiatonic.addIntervalRatio(5/3, "5:3")
 tuning_justdiatonic.addIntervalRatio(15/8, "15:8")
 
-tuning_just17limit = tuning.Tuning("Just 17-limit", [])
+tuning_just17limit = Tuning("Just 17-limit", [])
 tuning_just17limit.addIntervalRatio(1, "1:1")
 tuning_just17limit.addIntervalRatio(8/7, "8:7")
 tuning_just17limit.addIntervalRatio(5/4, "5:4")
@@ -189,7 +216,7 @@ tuning_just17limit.addIntervalRatio(7/5, "7:5")
 tuning_just17limit.addIntervalRatio(8/5, "8:5")
 tuning_just17limit.addIntervalRatio(7/4, "7:4")
 
-plot = tuningplot.TuningPlot('h', 14)
+plot = TuningPlot('h', 14)
 plot.plotDissonance([1, 2, 3, 4, 5, 6, 7, 8, 9], 5.5)
 plot.plotTuning(tuning_just17limit)
 plot.plotTuning(tuning_justdiatonic)
@@ -199,17 +226,17 @@ plot.plot()
 
 
     
-![png](/assets/images/2022-05-13-tuning/tuning_15_0.png)
+![png](/assets/images/2022-05-13-tuning/tuning_18_0.png)
     
 
 
 ## Odd Harmonics
 
-For a sound with only odd harmonics, such as a square wave, the dissonance curve looks quite different. 
+For a sound with only odd harmonics, such as a square waves and triangle waves, the dissonance curve looks quite different. 
 
 
 ```python
-plot = tuningplot.TuningPlot('h', 14, 1.6)
+plot = TuningPlot('h', 14, 1.6)
 plot.plotDissonance([1, 3, 5, 7, 9, 11, 13], 3.3)
 plot.plotRatios([(1, 1), (2, 1), (3, 1), (5, 3), (7, 5), (7, 3), (9,5), (9,7), (11,7), (11,9), (11,5), (13,7), (13,9), (13,11), (13,5)])
 plot.plot()
@@ -217,13 +244,15 @@ plot.plot()
 
 
     
-![png](/assets/images/2022-05-13-tuning/tuning_17_0.png)
+![png](/assets/images/2022-05-13-tuning/tuning_20_0.png)
     
 
 
 Here there is a consonant dip at 3/1 interval which is an octave (2/1) plus a fifth (3/2):
 
 $$log_2(2/1) + log_2(3/2) = log_2(3/1)$$
+
+$$2/1 \times 3/2 = 3/1$$
 
 The interval 3/1 can be called a tritave (Also a perfect twelfth, but this name is based on step sizes in 12 edo).
 
@@ -233,9 +262,9 @@ These intervals fit better with a 13 note equally divided tritave. This is the b
 
 
 ```python
-tuning_13edt = tuning.createEqualDivisionTuning("13edt", 13, 1.585)
+tuning_13edt = Tuning.createEqualDivisionTuning("13edt", 13, 1.585)
 
-plot = tuningplot.TuningPlot('h', 14, 1.6)
+plot = TuningPlot('h', 14, 1.6)
 plot.plotDissonance([1, 3, 5, 7, 9, 11, 13], 3.3)
 plot.plotRatios([(1, 1), (2, 1), (3, 1), (5, 3), (7, 5), (7, 3), (9,5), (9,7), (11,7), (11,9), (11,5), (13,7), (13,9), (13,11), (13,5)])
 plot.plotTuning(tuning_13edt)
@@ -245,6 +274,6 @@ plot.plot()
 
 
     
-![png](/assets/images/2022-05-13-tuning/tuning_19_0.png)
+![png](/assets/images/2022-05-13-tuning/tuning_22_0.png)
     
 
